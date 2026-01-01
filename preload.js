@@ -11,3 +11,7 @@ contextBridge.exposeInMainWorld('windowControls', {
   minimize: () => ipcRenderer.send('window-minimize'),
   close: () => ipcRenderer.send('window-close')
 });
+
+contextBridge.exposeInMainWorld('discordRPC', {
+  update: (station, since, icon) => ipcRenderer.send('discord-rpc-update', { station, since, icon })
+});

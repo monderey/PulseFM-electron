@@ -1,5 +1,35 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const { Client } = require('@xhayper/discord-rpc');
+
+const clientId = '1267520680128155681';
+const rpc = new Client({ clientId });
+
+rpc.on('ready', () => {
+  rpc.user?.setActivity({
+    details: 'PulseFM - Radio Online',
+    state: 'Obecnie nic nie słucha',
+    largeImageText: 'Powered by Zenwave.net',
+    largeImageKey: 'pulsefm',
+    instance: false,
+    type: 2,
+  }).catch(console.error);
+});
+
+ipcMain.on('discord-rpc-update', (event, { station, since, icon }) => {
+  if (!rpc) return;
+  rpc.user?.setActivity({
+    details: "PulseFM - Radio Online",
+    state: `Słucha: ${station}`,
+    largeImageText: 'Powered by Zenwave.net',
+    largeImageKey: icon || 'pulsefm',
+    instance: false,
+    type: 2,
+  }).catch(console.error);
+});
+
+rpc.on('error', console.error);
+rpc.on('disconnected', console.warn);
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -54,7 +84,10 @@ ipcMain.on('window-close', (event) => {
   if (win) win.close();
 });
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  rpc.login({ clientId }).catch(console.error);
+  createWindow();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
