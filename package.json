@@ -5,12 +5,26 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . PulseFM --platform=win32 --arch=x64 --out=dist --overwrite"
+    "build:win": "electron-builder --win --x64"
   },
   "author": "monderey",
   "license": "MIT",
   "devDependencies": {
     "electron": "^26.0.0",
-    "electron-packager": "^17.1.2"
+    "electron-builder": "^24.6.0"
+  },
+  "build": {
+    "appId": "com.pulsefm.app",
+    "productName": "PulseFM",
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "icon": "pulsefm.ico",
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "dist"
+    }
   }
 }

@@ -13,7 +13,7 @@ function createWindow() {
     transparent: true,
     backgroundColor: '#00000000',
     titleBarStyle: 'hidden',
-    icon: path.join(__dirname, 'pulsefm.png'),
+    icon: path.join(__dirname, 'pulsefm.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
