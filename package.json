@@ -4,11 +4,13 @@
   "description": "Electron app do odtwarzania stacji radiowych z API Zenwave",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . PulseFM --platform=win32 --arch=x64 --out=dist --overwrite"
   },
   "author": "monderey",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^26.0.0"
+    "electron": "^26.0.0",
+    "electron-packager": "^17.1.2"
   }
 }
