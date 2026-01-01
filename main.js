@@ -3,13 +3,17 @@ const path = require('path');
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 485,
+    width: 425,
     height: 685,
+    roundedCorners: true,
     resizable: false,
     maximizable: false,
     minimizable: true,
     frame: false,
+    transparent: true,
+    backgroundColor: '#00000000',
     titleBarStyle: 'hidden',
+    icon: path.join(__dirname, 'pulsefm.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,

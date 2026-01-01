@@ -16,7 +16,6 @@ async function loadStations() {
 
     listEl.innerHTML = '';
 
-
     stations.forEach(station => {
       const li = document.createElement('li');
       const btn = document.createElement('button');
