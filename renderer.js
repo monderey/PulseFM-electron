@@ -44,7 +44,7 @@ function playStation(url, name) {
   player.src = url;
   player.play().catch(console.error);
   currentStationName = name || '';
-  currentStationEl.textContent = name ? `Słuchasz: ${name}` : '';
+  currentStationEl.textContent = name ? `Słuchasz: ${name}` : 'Nie słuchasz żadnej stacji';
 }
 
 loadStations();
