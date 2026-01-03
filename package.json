@@ -1,6 +1,6 @@
 {
   "name": "pulsefm",
-  "version": "1.0.1-beta",
+  "version": "1.0.0",
   "description": "Electron app do odtwarzania stacji radiowych z API Zenwave",
   "main": "main.js",
   "scripts": {

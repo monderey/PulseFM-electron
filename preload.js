@@ -4,6 +4,14 @@ contextBridge.exposeInMainWorld('appAPI', {
   fetchStations: async () => {
     const res = await fetch('https://api.zenwave.net/v1/__mobile/app/pulsefm/stations');
     return res.json();
+  },
+  fetchOkolice: async () => {
+    const res = await fetch('https://api.zenwave.net/v1/__mobile/app/pulsefm/okolice');
+    return res.json();
+  },
+  fetchSwiat: async () => {
+    const res = await fetch('https://api.zenwave.net/v1/__mobile/app/pulsefm/swiat');
+    return res.json();
   }
 });
 

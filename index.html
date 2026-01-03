@@ -13,7 +13,13 @@
   </head>
 
   <body>
-    <div class="window-rounded">
+    <div class="loading-rounded" id="loading-overlay">
+      <div class="loading-content">
+        <div class="loader"></div>
+        <div class="loading-text">Wczytywanie stacji radiowych...</div>
+      </div>
+    </div>
+    <div class="window-rounded" style="display:none" id="main-app">
       <div class="titlebar">
         <div class="titlebar-left">
           <img src="pulsefm.png" alt="PulseFM Logo" class="titlebar-icon" />
@@ -30,12 +36,12 @@
       </div>
       <div class="mbmwhu">
         <div class="fweua">
-          <button title="Świat"><i class="fas fa-globe"></i></button>
-          <button title="Okolica"><i class="fas fa-home"></i></button>
-          <button title="Województwa">
+          <button id="nav-swiat" title="Świat"><i class="fas fa-globe"></i></button>
+          <button id="nav-okolica" title="Okolica" class="nav-active"><i class="fas fa-home"></i></button>
+          <button id="nav-wojewodztwa" title="Województwa">
             <i class="fas fa-map-marker-alt"></i>
           </button>
-          <button title="Ustawienia"><i class="fas fa-cog"></i></button>
+          <button id="nav-ustawienia" title="Ustawienia"><i class="fas fa-cog"></i></button>
         </div>
         <div class="container">
           <div class="bnieu">Wybierz swoją radio stację</div>
